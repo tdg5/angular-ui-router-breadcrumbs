@@ -1,10 +1,10 @@
 breadcrumbs.provider('breadcrumbs', function BreadcrumbsProvider() {
+  'use strict';
   var compile;
 
   function defaultCompiler(currentState) {
-    if(!currentState.breadcrumb) { return null };
+    if(!currentState.breadcrumb) { return null; }
 
-    var breadcrumb;
     if(typeof currentState.breadcrumb === 'string') {
       return {
         text: currentState.breadcrumb,
@@ -13,7 +13,7 @@ breadcrumbs.provider('breadcrumbs', function BreadcrumbsProvider() {
     } else {
       return currentState.breadcrumb;
     }
-  };
+  }
 
   compile = defaultCompiler;
 
@@ -29,7 +29,7 @@ breadcrumbs.provider('breadcrumbs', function BreadcrumbsProvider() {
       currentState = currentState.parent;
     }
     return breadcrumbs;
-  };
+  }
 
   // Public Interface
 

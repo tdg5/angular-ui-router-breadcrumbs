@@ -1,4 +1,7 @@
+'use strict';
 /*global module:false*/
+/*global require:false*/
+
 module.exports = function (grunt) {
 
   require('load-grunt-tasks')(grunt);
@@ -21,12 +24,16 @@ module.exports = function (grunt) {
     concat: {
       options: {
         banner: '<%= meta.banner %>\n\n'+
-                '/* commonjs package manager support (eg componentjs) */\n'+
                 'if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){\n'+
                 '  module.exports = \'ui-router-breadcrumbs\';\n'+
                 '}\n\n'+
-                '(function (window, angular, undefined) {\n',
-        footer: '})(window, window.angular);'
+                '(function (window, angular, undefined) {\n'+
+                '"use strict";\n',
+        footer: '})(window, window.angular);',
+        process: function(src, filepath) {
+          return '// Source: ' + filepath + '\n' +
+            src.replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1');
+        },
       },
       build: {
         src: files.src,
@@ -49,18 +56,19 @@ module.exports = function (grunt) {
       dest: 'release'
     },
     jshint: {
-      all: ['Gruntfile.js', 'src/*.js', '<%= builddir %>/<%= pkg.name %>.js'],
+      all: ['Gruntfile.js', 'src/**/*.js', '<%= builddir %>/<%= pkg.name %>.js'],
       options: {
-        eqnull: true,
+        boss: true,
         curly: true,
         eqeqeq: true,
+        eqnull: true,
+        globalstrict: true,
         immed: true,
         latedef: true,
         newcap: true,
         noarg: true,
         sub: true,
         unused: true,
-        boss: true,
       }
     },
     watch: {

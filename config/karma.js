@@ -1,6 +1,3 @@
-// Karma configuration
-// http://karma-runner.github.io/0.10/config/configuration-file.html
-
 var files = require('../files').files;
 
 module.exports = function(config) {
@@ -12,7 +9,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-    files: [].concat(files.angular, files.testUtils, files.src, files.test),
+    files: [].concat(files.angular, files.testUtils, files.build, files.test),
 
     // list of files / patterns to exclude
     exclude: [],
