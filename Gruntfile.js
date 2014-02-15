@@ -82,7 +82,7 @@ module.exports = function (grunt) {
         singleRun: true,
         exclude: [],
         frameworks: ['jasmine'],
-        reporters: 'dots', // 'dots' || 'progress'
+        reporters: 'dots',
         port: 8080,
         colors: true,
         autoWatch: false,
