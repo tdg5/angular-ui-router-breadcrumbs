@@ -1,5 +1,7 @@
 breadcrumbFiles = {
   src: [
+    'src/ui-router-breadcrumbs.js',
+    'src/services/breadcrumbs.js'
   ],
   testUtils: [
     'bower_components/angular-mocks/angular-mocks.js'
