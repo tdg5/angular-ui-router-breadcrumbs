@@ -2,13 +2,14 @@ breadcrumbFiles = {
   src: [
   ],
   testUtils: [
+    'bower_components/angular-mocks/angular-mocks.js'
   ],
   test: [
-    'test/*Spec.js'
+    "test/**/*Spec.js"
   ],
   angular: [
-    "node_modules/angular/lib/angular.min.js",
-    "node_modules/angular-ui-router/release/angular-ui-router.js"
+    "bower_components/angular/angular.js",
+    "bower_components/angular-ui-router/release/angular-ui-router.js"
   ]
 };
 
