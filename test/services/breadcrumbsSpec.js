@@ -73,7 +73,7 @@ describe('Service: Breadcrumbs', function() {
         if(statesToSkip.test(state)) { continue; };
 
         breadcrumbState = breadcrumbStates[state];
-        crumb = breadcrumbs.pop();
+        crumb = breadcrumbs.shift();
         expect(crumb.text).toBe(breadcrumbState.breadcrumb);
         expect(crumb['ui-sref']).toBe(breadcrumbState.name);
       }
@@ -98,7 +98,7 @@ describe('Service: Breadcrumbs', function() {
       for(var state in breadcrumbStates) {
         breadcrumbState = breadcrumbStates[state];
         if(statesToCheck.test(state) && breadcrumbState.breadcrumb) {
-          crumb = breadcrumbs.pop();
+          crumb = breadcrumbs.shift();
           expect(crumb.text).toBe(breadcrumbState.breadcrumb);
           expect(crumb['ui-sref']).toBe(breadcrumbState.name);
         }

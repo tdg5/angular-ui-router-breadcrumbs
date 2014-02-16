@@ -25,7 +25,7 @@ breadcrumbs.provider('breadcrumbs', function BreadcrumbsProvider() {
 
     while(currentState.parent) {
       breadcrumb = compile(currentState.self);
-      if(breadcrumb) { breadcrumbs.push(breadcrumb); }
+      if(breadcrumb) { breadcrumbs.unshift(breadcrumb); }
       currentState = currentState.parent;
     }
     return breadcrumbs;
@@ -42,6 +42,7 @@ breadcrumbs.provider('breadcrumbs', function BreadcrumbsProvider() {
     '$state',
     function($rootScope, $state) {
       var breadcrumbs = [];
+      refresh($state, breadcrumbs);
       $rootScope.$on('$stateChangeSuccess', function() { refresh($state, breadcrumbs); });
       return breadcrumbs;
     }
