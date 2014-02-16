@@ -8,7 +8,7 @@ breadcrumbs.provider('breadcrumbs', function BreadcrumbsProvider() {
     if(typeof currentState.breadcrumb === 'string') {
       return {
         text: currentState.breadcrumb,
-        'ui-sref': currentState.name
+        stateName: currentState.name
       };
     } else {
       return currentState.breadcrumb;

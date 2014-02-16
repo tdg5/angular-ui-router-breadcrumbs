@@ -64,7 +64,7 @@ describe('Service: Breadcrumbs', function() {
         breadcrumbState = breadcrumbStates[state];
         crumb = breadcrumbs.shift();
         expect(crumb.text).toBe(breadcrumbState.breadcrumb);
-        expect(crumb['ui-sref']).toBe(breadcrumbState.name);
+        expect(crumb.stateName).toBe(breadcrumbState.name);
       }
     });
 
@@ -89,7 +89,7 @@ describe('Service: Breadcrumbs', function() {
         if(statesToCheck.test(state) && breadcrumbState.breadcrumb) {
           crumb = breadcrumbs.shift();
           expect(crumb.text).toBe(breadcrumbState.breadcrumb);
-          expect(crumb['ui-sref']).toBe(breadcrumbState.name);
+          expect(crumb.stateName).toBe(breadcrumbState.name);
         }
       }
     });

@@ -27,8 +27,8 @@ describe('Directive: breadcrumbs', function () {
   beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();
     $get('$state').transitionTo('b.b.b.b', {});
-    element = '<ol breadcrumbs><li ng-repeat="breadcrumb in breadcrumbs"><a ui-sref="{{breadcrumb['+
-      "'ui-sref']}}\">{{breadcrumb.text}}</a></li></ol>";
+    element = '<ol breadcrumbs><li ng-repeat="breadcrumb in breadcrumbs">' +
+      '<a ui-sref="{{breadcrumb.stateName}}">{{breadcrumb.text}}</a></li></ol>';
   }));
 
 
@@ -51,7 +51,7 @@ describe('Directive: breadcrumbs', function () {
     anchors = items.children();
     for(var i = 0; i < anchors.length; i++) {
       expect(anchors[i].text).toEqual(breadcrumbs[i].text);
-      expect(anchors[i].attributes['ui-sref'].value).toEqual(breadcrumbs[i]['ui-sref']);
+      expect(anchors[i].attributes['ui-sref'].value).toEqual(breadcrumbs[i].stateName);
       expect(anchors[i].attributes['href'].value).toEqual(href);
       // Skip third url tier w/o breadcrumb
       href += href == '#/b/b' ? '/b/b' : '/b';
