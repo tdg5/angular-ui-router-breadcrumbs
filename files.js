@@ -14,7 +14,8 @@ breadcrumbFiles = {
     "test/**/*Spec.js"
   ],
   testUtils: [
-    'bower_components/angular-mocks/angular-mocks.js'
+    'bower_components/angular-mocks/angular-mocks.js',
+    'test/testHelper.js'
   ]
 };
 

@@ -2,20 +2,8 @@
 
 describe('Service: Breadcrumbs', function() {
 
-  function $get(what) {
-    return jasmine.getEnv().currentSpec.$injector.get(what);
-  };
-
-
-  function initStateTo(state, optionalParams) {
-    var $state = $get('$state');
-    $state.transitionTo(state, optionalParams || {});
-    $get('$rootScope').$apply();
-    expect($state.current.name).toBe(state);
-  };
-
-
   var breadcrumbs,
+    $stateProvider,
     breadcrumbStates = {
       'b': {breadcrumb: 'B'},
       'b.b': {breadcrumb: 'BB'},
@@ -38,7 +26,8 @@ describe('Service: Breadcrumbs', function() {
   angular.extend(states, breadcrumbStates);
 
   beforeEach(function() {
-    module('ui.router', function($stateProvider) {
+    module('ui.router', function(_$stateProvider_) {
+      $stateProvider = _$stateProvider_;
       for(var state in states) {
         $stateProvider.state(state, states[state]);
       }
