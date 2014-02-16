@@ -8,6 +8,7 @@ breadcrumbFiles = {
   ],
   src: [
     'src/ui-router-breadcrumbs.js',
+    'src/directives/breadcrumbs.js',
     'src/services/breadcrumbs.js'
   ],
   test: [
