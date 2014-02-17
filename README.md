@@ -60,25 +60,28 @@ object where it is defined. For example:
   });
 ```
 
-UI-Router supports [custom data](https://github.com/angular-ui/ui-router/wiki#wiki-attach-custom-data-to-state-objects),
-though it suggests storing custom data under a `data` attribute. I've chosen not
-to follow this recommendation because breadcrumbs seem to me like state metadata
-whereas I would expect the data attribute to contain data for the underlying
-state. This does however bring us to the next point: customization.
+This is more or less supported by UI-Router as UI-Router supports
+[custom data](https://github.com/angular-ui/ui-router/wiki#wiki-attach-custom-data-to-state-objects),
+though typically on a `data` attribute. Breadcrumbs are stored elsewhere because
+nested states inherit custom data from parent states and this behavior is not
+especially intuitive given this approach to breadcrumbs. For example, storing
+breadcrumbs as part of a state's `data` attribute would require having to
+explicitly define a null breadcrumb for some child states or else handle
+duplicate breadcrumbs when a child state doesn't override the inherited breadcrumb.
 
 #### Customization
 During the configuration phase, the `breadcrumbsProvider` can be
 configured to use a custom compiler to extract breadcrumb information from each
 state in the current ancestory. A custom compiler function can be used by
 passing the compiler function to `breadcrumbsProvider.compileWith()`. For
-example, to pull breadcrumb data from state.data.breadcrumbs instead of
-state.breadcrumbs you could use:
+example, to create a custom compiler that expects a breadcrumbs function,
+something like this might work:
 
 ```javascript
 var yourApp = angular.module('yourApp', ['ui.router.breadcrumbs']);
 yourApp.config(['breadcrumbsProvider', function(breadcrumbsProvider) {
   breadcrumbsProvider.compileWith(function(state) {
-    return state.data && state.data.breadcrumbs;
+    return state.breadcrumbs && state.breadcrumbs();
   });
 });
 ```
