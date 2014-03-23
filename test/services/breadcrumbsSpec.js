@@ -4,6 +4,7 @@ describe('Service: Breadcrumbs', function() {
 
   var breadcrumbs,
     $stateProvider,
+    initStateTo,
     breadcrumbStates = {
       'b': {breadcrumb: 'B'},
       'b.b': {breadcrumb: 'BB'},
@@ -39,8 +40,9 @@ describe('Service: Breadcrumbs', function() {
   describe('Default compiler', function() {
 
     beforeEach(function() {
-      inject(function (_breadcrumbs_) {
+      inject(function (_breadcrumbs_, $state, $rootScope) {
         breadcrumbs = _breadcrumbs_;
+        initStateTo = defInitStateTo($state, $rootScope);
       })
     });
 
@@ -98,11 +100,9 @@ describe('Service: Breadcrumbs', function() {
 
   describe('Custom compiler', function() {
 
-    var calledCustom,
-      spy,
+    var spy,
       test = {
         customCompiler: function(currentState) {
-          calledCustom = true;
           var breadcrumb = currentState.breadcrumb;
           if(breadcrumb == 'B') {
             return null;
@@ -115,13 +115,14 @@ describe('Service: Breadcrumbs', function() {
 
     beforeEach(function() {
       var fakeModule = angular.module('test.provider.config', []);
-      spy = spyOn(test, 'customCompiler').andCallThrough();
+      spy = spyOn(test, 'customCompiler').and.callThrough();
       fakeModule.config(function(breadcrumbsProvider) {
         breadcrumbsProvider.compileWith(test.customCompiler);
       });
       module('test.provider.config');
-      inject(function (_breadcrumbs_) {
+      inject(function (_breadcrumbs_, $state, $rootScope) {
         breadcrumbs = _breadcrumbs_;
+        initStateTo = defInitStateTo($state, $rootScope);
       })
     });
 
@@ -141,7 +142,7 @@ describe('Service: Breadcrumbs', function() {
 
     it('should update breadcrumbs on successful state change', function() {
       expect(spy).not.toHaveBeenCalled();
-      initStateTo('ax');
+      initStateTo('bx');
       expect(spy).toHaveBeenCalled();
     });
 

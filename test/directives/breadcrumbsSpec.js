@@ -24,9 +24,9 @@ describe('Directive: breadcrumbs', function () {
   });
 
 
-  beforeEach(inject(function($rootScope) {
+  beforeEach(inject(function($rootScope, $state) {
     scope = $rootScope.$new();
-    $get('$state').transitionTo('b.b.b.b', {});
+    $state.transitionTo('b.b.b.b', {});
     element = '<ol breadcrumbs><li ng-repeat="breadcrumb in breadcrumbs">' +
       '<a ui-sref="{{breadcrumb.stateName}}">{{breadcrumb.text}}</a></li></ol>';
   }));
