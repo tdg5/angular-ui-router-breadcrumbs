@@ -15,12 +15,8 @@
     "bower_components",
     "component.json",
     "package.json",
-    "lib",
     "config",
-    "sample",
-    "test",
-    "tests",
-    "ngdoc_assets"
+    "test"
   ],
   "authors": [
     "dev@intervalbraining.com"
