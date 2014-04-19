@@ -4,7 +4,7 @@
   "main": "./release/angular-ui-router-breadcrumbs.js",
   "dependencies": {
     "angular": ">= 1.0.8",
-    "angular-ui-router": "master"
+    "angular-ui-router": "0.2.10"
   },
   "devDependencies": {
     "angular-mocks": ">=1.0.8"
