@@ -2,7 +2,7 @@
   "authors": ["dev@intervalbraining.com"],
   "dependencies": {
     "angular": ">= 1.0.8",
-    "angular-ui-router": "0.2.10"
+    "angular-ui-router": "~0.2.10"
   },
   "description": "angular-ui-router state derived breadcrumbs",
   "devDependencies": {
