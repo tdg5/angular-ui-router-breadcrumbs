@@ -1,57 +1,49 @@
 {
-  "name": "angular-ui-router-breadcrumbs",
-  "description": "angular-ui-router state derived breadcrumbs",
-  "version": "0.0.1",
-  "homepage": "https://github.com/interval-braining/angular-ui-router-breadcrumbs",
-  "contributors": [
-    {
-      "name": "Danny Guinther",
-      "email": "dannyguinther@gmail.com",
-      "web": "https://github.com/tdg5"
-    }
-  ],
-  "maintainers": [
-    {
-      "name": "IntervalBraining",
-      "web": "https://github.com/interval-braining"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/interval-braining/angular-ui-router-breadcrumbs.git"
-  },
   "bugs": {
     "url": "https://github.com/interval-braining/angular-ui-router-breadcrumbs/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/interval-braining/angular-ui-router-breadcrumbs/blob/master/LICENSE"
-    }
-  ],
-  "dependencies": {},
-  "devDependencies": {
+  "contributors": [{
+    "email": "dannyguinther@gmail.com",
+    "name": "Danny Guinther",
+    "web": "https://github.com/tdg5"
+  }],
+  "dependencies": {
     "angular": ">= 1.0.8",
-    "angular-ui-router": ">= 0.2.0",
+    "angular-ui-router": ">= 0.2.10"
+  },
+  "description": "angular-ui-router state derived breadcrumbs",
+  "devDependencies": {
     "bower": "~1.2.8",
     "coveralls": "~2.3.0",
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.9",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-jshint": "~0.7.1",
     "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-karma": "~0.8.0",
-    "grunt-ngdocs": "~0.1.7",
     "karma": "~0.12.0",
     "karma-chrome-launcher": "~0.1.0",
     "karma-jasmine": "~0.2.0",
     "karma-phantomjs-launcher": "~0.1.0",
-    "karma-requirejs": "~0.2.0",
     "karma-script-launcher": "~0.1.0",
-    "load-grunt-tasks": "~0.2.0",
-    "shelljs": "~0.2.6"
-  }
+    "load-grunt-tasks": "~0.2.0"
+  },
+  "homepage": "https://github.com/interval-braining/angular-ui-router-breadcrumbs",
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/interval-braining/angular-ui-router-breadcrumbs/blob/master/LICENSE"
+  }],
+  "maintainers": [{
+    "name": "IntervalBraining",
+    "web": "https://github.com/interval-braining"
+  }],
+  "name": "angular-ui-router-breadcrumbs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interval-braining/angular-ui-router-breadcrumbs.git"
+  },
+  "version": "0.0.1"
 }

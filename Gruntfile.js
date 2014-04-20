@@ -1,32 +1,18 @@
 'use strict';
-/*global module:false*/
-/*global require:false*/
+/* global module, require */
 
 module.exports = function (grunt) {
 
   require('load-grunt-tasks')(grunt);
   var files = require('./files').files;
 
-  // Project configuration.
   grunt.initConfig({
     builddir: 'build',
-    pkg: grunt.file.readJSON('package.json'),
     buildtag: '-dev-' + grunt.template.today('yyyy-mm-dd'),
-    meta: {
-      banner: '/**\n' +
-        ' * <%= pkg.description %>\n' +
-        ' * @version v<%= pkg.version %><%= buildtag %>\n' +
-        ' * @link <%= pkg.homepage %>\n' +
-        ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
-        ' */'
-    },
     clean: [ '<%= builddir %>' ],
     concat: {
       options: {
         banner: '<%= meta.banner %>\n\n'+
-                'if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){\n'+
-                '  module.exports = \'ui-router-breadcrumbs\';\n'+
-                '}\n\n'+
                 '(function (window, angular, undefined) {\n'+
                 '"use strict";\n',
         footer: '})(window, window.angular);',
@@ -40,6 +26,73 @@ module.exports = function (grunt) {
         dest: '<%= builddir %>/<%= pkg.name %>.js'
       }
     },
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          dest: 'dist',
+          filter: 'isFile',
+          flatten: true,
+          src: ['build/*.js']
+        }]
+      }
+    },
+    jshint: {
+      beforeConcat: {
+        src: ['Gruntfile.js', 'src/**/*.js']
+      },
+      afterConcat: {
+        src: [ '<%= concat.build.dest %>' ]
+      },
+      options: {
+        boss: true,
+        curly: true,
+        eqeqeq: true,
+        eqnull: true,
+        globalstrict: true,
+        globals: {
+          angular: true
+        },
+        immed: true,
+        latedef: true,
+        newcap: true,
+        noarg: true,
+        sub: true,
+        unused: true,
+      }
+    },
+    karma: {
+      unit: {
+        browsers: [ grunt.option('browser') || 'PhantomJS' ],
+        configFile: 'config/karma/src.conf.js',
+        singleRun: true
+      },
+      debug: {
+        singleRun: false,
+        background: false,
+        configFile: 'config/karma/src.conf.js',
+        browsers: [ grunt.option('browser') || 'Chrome' ]
+      },
+      build: {
+        browsers: [ grunt.option('browser') || 'PhantomJS' ],
+        configFile: 'config/karma/build.conf.js',
+        singleRun: true
+      },
+      min: {
+        browsers: [ grunt.option('browser') || 'PhantomJS' ],
+        configFile: 'config/karma/min.conf.js',
+        singleRun: true
+      }
+    },
+    meta: {
+      banner: '/**\n' +
+        ' * <%= pkg.description %>\n' +
+        ' * @version v<%= pkg.version %><%= buildtag %>\n' +
+        ' * @link <%= pkg.homepage %>\n' +
+        ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
+        ' */'
+    },
+    pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
         banner: '<%= meta.banner %>\n'
@@ -50,65 +103,13 @@ module.exports = function (grunt) {
         }
       }
     },
-    release: {
-      files: ['<%= pkg.name %>.js', '<%= pkg.name %>.min.js'],
-      src: '<%= builddir %>',
-      dest: 'release'
-    },
-    jshint: {
-      all: ['Gruntfile.js', 'src/**/*.js', '<%= builddir %>/<%= pkg.name %>.js'],
-      options: {
-        boss: true,
-        curly: true,
-        eqeqeq: true,
-        eqnull: true,
-        globalstrict: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        unused: true,
-      }
-    },
     watch: {
       files: ['src/*.js', 'test/**/*.js'],
-      tasks: ['build', 'karma:background:run']
+      tasks: ['build']
     },
-    connect: {
-      server: {},
-      sample: {
-        options:{
-          port: 5555,
-          keepalive: true
-        }
-      }
-    },
-    karma: {
-      options: {
-        configFile: 'config/karma.js',
-        singleRun: true,
-        exclude: [],
-        frameworks: ['jasmine'],
-        reporters: 'dots',
-        port: 8080,
-        colors: true,
-        autoWatch: false,
-        autoWatchInterval: 0,
-        browsers: [ grunt.option('browser') || 'PhantomJS' ]
-      },
-      unit: {
-        browsers: [ grunt.option('browser') || 'PhantomJS' ]
-      },
-      debug: {
-        singleRun: false,
-        background: false,
-        browsers: [ grunt.option('browser') || 'Chrome' ]
-      }
-    }
   });
 
-  grunt.registerTask('default', ['build', 'jshint', 'karma:unit']);
-  grunt.registerTask('build', 'Perform a normal build', ['concat', 'uglify']);
-  grunt.registerTask('dist', 'Perform a clean build', ['clean', 'build']);
+  grunt.registerTask('default', ['karma:unit', 'build']);
+  grunt.registerTask('build', 'Perform a normal build', ['jshint:beforeConcat', 'concat', 'jshint:afterConcat', 'karma:build', 'uglify', 'karma:min']);
+  grunt.registerTask('dist', 'Perform a clean build', ['clean', 'build', 'copy:dist']);
 };
