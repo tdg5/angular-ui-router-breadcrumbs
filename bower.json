@@ -13,8 +13,11 @@
     "**/.*",
     "bower_components",
     "config",
+    "files.js",
+    "Gruntfile.js",
     "node_modules",
     "package.json",
+    "src",
     "test"
   ],
   "keywords": [
@@ -26,9 +29,8 @@
   ],
   "license": "MIT",
   "main": [
-    "./dist/angular-ui-router-breadcrumbs.js",
-    "./dist/angular-ui-router-breadcrumbs.min.js"
+    "./dist/angular-ui-router-breadcrumbs.js"
   ],
   "name": "angular-ui-router-breadcrumbs",
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
