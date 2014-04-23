@@ -1,5 +1,6 @@
 # UI-Router-Breadcrumbs
 [![Build Status](https://travis-ci.org/interval-braining/angular-ui-router-breadcrumbs.png?branch=master)](https://travis-ci.org/interval-braining/angular-ui-router-breadcrumbs)
+[![Code Climate](https://codeclimate.com/github/interval-braining/angular-ui-router-breadcrumbs.png)](https://codeclimate.com/github/interval-braining/angular-ui-router-breadcrumbs)
 
 UI-Router-Breadcrumbs provides a service and directive that allow for the
 creation of navigational breadcrumbs that are flexible and ready for customization.
