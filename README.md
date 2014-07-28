@@ -84,7 +84,7 @@ yourApp.config(['breadcrumbsProvider', function(breadcrumbsProvider) {
   breadcrumbsProvider.compileWith(function(state) {
     return state.breadcrumbs && state.breadcrumbs();
   });
-});
+}]);
 ```
 
 Though the example is contrived it should illustrate the flexibility of the
@@ -132,7 +132,7 @@ app.config(['$stateProvider', function($stateProvider) {
       breadcrumb: 'ABCD',
       url: '/d'
     });
-});
+}]);
 ```
 
 and this template:
