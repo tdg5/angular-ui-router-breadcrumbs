@@ -1,6 +1,6 @@
 {
   "bugs": {
-    "url": "https://github.com/interval-braining/angular-ui-router-breadcrumbs/issues"
+    "url": "https://github.com/tdg5/angular-ui-router-breadcrumbs/issues"
   },
   "contributors": [{
     "email": "dannyguinther@gmail.com",
@@ -31,19 +31,19 @@
     "karma-script-launcher": "~0.1.0",
     "load-grunt-tasks": "~0.2.0"
   },
-  "homepage": "https://github.com/interval-braining/angular-ui-router-breadcrumbs",
+  "homepage": "https://github.com/tdg5/angular-ui-router-breadcrumbs",
   "licenses": [{
     "type": "MIT",
-    "url": "https://github.com/interval-braining/angular-ui-router-breadcrumbs/blob/master/LICENSE"
+    "url": "https://github.com/tdg5/angular-ui-router-breadcrumbs/blob/master/LICENSE"
   }],
   "maintainers": [{
-    "name": "IntervalBraining",
-    "web": "https://github.com/interval-braining"
+    "name": "Danny Guinther",
+    "web": "http://tdg5.com"
   }],
   "name": "angular-ui-router-breadcrumbs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/interval-braining/angular-ui-router-breadcrumbs.git"
+    "url": "https://github.com/tdg5/angular-ui-router-breadcrumbs.git"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

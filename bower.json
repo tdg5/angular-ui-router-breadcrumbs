@@ -1,5 +1,5 @@
 {
-  "authors": ["dev@intervalbraining.com"],
+  "authors": ["dev@tdg5.com"],
   "dependencies": {
     "angular": ">= 1.0.8",
     "angular-ui-router": "~0.2.10"
@@ -8,7 +8,7 @@
   "devDependencies": {
     "angular-mocks": ">=1.0.8"
   },
-  "homepage": "https://github.com/interval-braining/angular-ui-router-breadcrumbs",
+  "homepage": "https://github.com/tdg5/angular-ui-router-breadcrumbs",
   "ignore": [
     "**/.*",
     "bower_components",

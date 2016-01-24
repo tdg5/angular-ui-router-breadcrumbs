@@ -1,7 +1,7 @@
 /**
  * angular-ui-router state derived breadcrumbs
  * @version v0.0.1-dev-2014-04-20
- * @link https://github.com/interval-braining/angular-ui-router-breadcrumbs
+ * @link https://github.com/tdg5/angular-ui-router-breadcrumbs
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 

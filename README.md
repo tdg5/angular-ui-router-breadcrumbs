@@ -1,6 +1,6 @@
 # UI-Router-Breadcrumbs
-[![Build Status](https://travis-ci.org/interval-braining/angular-ui-router-breadcrumbs.png?branch=master)](https://travis-ci.org/interval-braining/angular-ui-router-breadcrumbs)
-[![Code Climate](https://codeclimate.com/github/interval-braining/angular-ui-router-breadcrumbs.png)](https://codeclimate.com/github/interval-braining/angular-ui-router-breadcrumbs)
+[![Build Status](https://travis-ci.org/tdg5/angular-ui-router-breadcrumbs.png?branch=master)](https://travis-ci.org/tdg5/angular-ui-router-breadcrumbs)
+[![Code Climate](https://codeclimate.com/github/tdg5/angular-ui-router-breadcrumbs.png)](https://codeclimate.com/github/tdg5/angular-ui-router-breadcrumbs)
 
 UI-Router-Breadcrumbs provides a service and directive that allow for the
 creation of navigational breadcrumbs that are flexible and ready for customization.
@@ -12,7 +12,7 @@ subject to change.*
 
 **(1)** Get UI-Router-Breadcrumbs by cloning and building this repository:
 ```bash
-git clone git@github.com:interval-braining/angular-ui-router-breadcrumbs.git
+git clone git@github.com:tdg5/angular-ui-router-breadcrumbs.git
 cd angular-ui-router-breadcrumbs
 npm install
 bower install
