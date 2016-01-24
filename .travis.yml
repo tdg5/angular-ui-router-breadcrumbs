@@ -4,6 +4,7 @@ node_js:
 
 before_script:
   - npm install
+  - npm update -g bower
   - bower install -F
 
 script:
