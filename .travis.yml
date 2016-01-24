@@ -4,7 +4,7 @@ node_js:
 
 before_script:
   - npm install
-  - npm update -g bower
+  - npm install -g bower@1.7.2
   - bower install -F
 
 script:
